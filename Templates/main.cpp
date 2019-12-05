@@ -2,6 +2,10 @@
 #include <iostream>
 #include <vector>
 #include "FunctionTemplates.h"
+#include <string>
+#include <map>
+#include <list>
+#include <set>
 std::vector<int> func1(std::vector<int>& a) {
 	return a; // return type std::vector<int, std::allocator<int>> &
 }
@@ -9,20 +13,16 @@ std::vector<int> func1(std::vector<int>& a) {
 std::vector<int> func2(std::vector<int> a) {
 	return a; // return type std::vector<int, std::allocator<int>> &
 }
+std::map<std::string, int> func3(std::map<std::string, int> d) {
+	return d;
+}
 int main() {
 	std::vector<int> i{ 1, 2, 3 };
 	std::vector<char> j { 'A', 'B', 'C' };
-	int k = 1;
-	func1(i);
-	func2(i);
-	func_template1(i); 
-	func_template2(i, j);
-	// func_template1(k); // won't compile
-	func_template3(j);
-
-	func_template4(j);
-
-
-
+	std::map<std::string, int> k{ {"A", 1} };
+	std::map<std::string, double> g{ {"B", 2.0} };
+	std::set<int> p{ 1,2,3 };
+	std::pair<std::string, int> a{ "A", 1 };
+	func3(k);
 	return 0;
 }
